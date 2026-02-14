@@ -7,10 +7,8 @@ using StateControlSystem.Services.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// For Services 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,8 +16,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IInvoiceService, InvoiceService>();
 builder.Services.AddTransient<IInvoiceRepository, InvoiceRepository>();
 
+// DataContext
 builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("PgSql")));
 
+// Caching
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();
@@ -44,7 +44,6 @@ while (retryCount < maxRetries)
     }
 }
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
