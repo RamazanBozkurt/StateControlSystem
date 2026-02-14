@@ -8,7 +8,7 @@ namespace StateControlSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InvoiceController : ControllerBase
+    public class InvoicesController : ControllerBase
     {
         private readonly IInvoiceService _invoiceService;
         public InvoiceController(IInvoiceService invoiceService)
