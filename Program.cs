@@ -39,7 +39,7 @@ while (retryCount < maxRetries)
     catch (Exception ex)
     {
         retryCount++;
-        Console.WriteLine($"Migration failed. Retrying {retryCount}/{maxRetries}...");
+        Console.WriteLine($"Migration failed. Retrying {retryCount} / {maxRetries}...");
         Thread.Sleep(5000);
     }
 }
